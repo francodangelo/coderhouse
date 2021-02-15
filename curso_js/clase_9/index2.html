@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: aliceblue;
+
+        }
+
+        .wrapper {
+            width: 400px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .wrapper label {
+            display: block;
+            margin: 0.5em 0;
+        }
+
+        .wrapper label input {
+            font-size: 18px;
+            padding: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Data</h1>
+    
+    <div class="wrapper">
+        <form class="form">
+            <label id="sueldoBruto">
+                <input type="text" name="sueldoBruto" placeholder="30000">
+            </label>
+
+            <input type="submit" name="submit" value="submit">
+            
+        </form>
+    </div>
+
+    <script>
+        const   wrapper = document.querySelector('.wrapper'),
+        form    = wrapper.querySelectorAll('.form'),
+        submitInput  = form[0].querySelector('input[type="submit"]');
+
+        function    getDataForm(e){
+            // Prevent Default Behaviour of the Submit
+            e.preventDefault();
+
+            var formData = new FormData(form[0]);
+
+            alert( formData.get('sueldoBruto') );
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){ 
+            
+            submitInput.addEventListener('click', getDataForm, false);
+
+        }, false);
+    </script>
+</body>
+</html>
