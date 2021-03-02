@@ -27,21 +27,26 @@ function Persona(bruto, neto) {
 // Main Function
 function main() {
     // Get user inputs
-    var bruto = document.getElementById("input_bruto").value
+    var bruto = $( "#input_bruto" ).val()
     var neto = brutoNeto(bruto)
     var newPersona = new Persona(bruto, neto)
 
-    document.getElementById("output_neto").innerHTML = neto
-
-    alert(bruto + " " + neto)
-    alert(newPersona.bruto + " " + newPersona.neto)
+    $( "#output_neto" ).text( neto )
 }
 
 // Bring button to life
+// $( "#btn" ).click( function () { main() })
 document.getElementById("btn").addEventListener("click", main);
 // Trigger function using enter 
-function triggerEnter(event) {
-    if (event.which == 13) {
+$( document ).keypress(function(event)
+{
+    if(event.which == 13) {
         main()
     }
-}
+})
+// Set button for reset
+$( document ).ready( function() {
+    $( ".contact100-form-rst" ).click( function() {
+        location.reload( true )
+    })
+})
