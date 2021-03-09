@@ -29,7 +29,7 @@ var spot_btc
 $( document ).click(function() 
 {
     $.ajax({
-        url: "https://api.coinbase.com/v2/prices/spot?currency=USD",  
+        url: "https://api.coinbase.com/v2/prices/spot?currency=ARS",  
         type: "GET",
         dataType: "json",}).done(function (result) 
             {  
@@ -37,14 +37,15 @@ $( document ).click(function()
             })
 })
 
-// Get user inputs
-var bruto = $( "#input_bruto" ).val()
-var neto = brutoNeto(bruto)
-var newPersona = new Persona(bruto, neto)
 // Main Function
 function main() {
+    // Get user inputs
+    var bruto = $( "#input_bruto" ).val()
+    var neto = brutoNeto(bruto)
+    var newPersona = new Persona(bruto, neto)
+
     $( "#output_neto" ).text( neto )
-    $( "#output_btc" ).text( (sueldoNeto / 140) / spot_btc );
+    $( "#output_btc" ).text( sueldoNeto / spot_btc );
 }
 
 // Bring button to life
