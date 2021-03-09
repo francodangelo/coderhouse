@@ -49,7 +49,7 @@ function main() {
 }
 
 // Bring button to life
-$( document ).click(function() { main() })
+$( ".contact100-form-btn" ).click(function() { main() })
 
 // Trigger function using enter 
 $( document ).keypress(function(event)
